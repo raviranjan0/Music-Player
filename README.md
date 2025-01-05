@@ -11,7 +11,7 @@ A sleek and  music simple player website that allows users to listen to added so
 
 ## Demo
 
-Check out the live demo: [Music Player Website Demo](https://yourwebsite.com) *(Replace with your deployed app link)*
+Check out the live demo: [Music Player Website Demo](https://rv-music-player.vercel.app) 
 
 ![image](https://github.com/user-attachments/assets/0b0938fa-ba8e-498b-83bd-1d712ba0e849)
 
