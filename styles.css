@@ -1,0 +1,105 @@
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden initially */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    transition: 0.3s;
+    overflow-y: auto;
+  }
+  
+  .sidebar.active {
+    left: 0; /* When active, it will slide in */
+  }
+  
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .close-btn {
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin: 15px 0;
+    cursor: pointer;
+  }
+  
+  ul li:hover {
+    color: #f1c40f;
+  }
+  
+  /* Player styles */
+  .player-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .player {
+    text-align: center;
+  }
+  
+  .cover img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .controls button {
+    margin: 0 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .menu-btn .ri-menu-3-line,
+  .close-btn .ri-close-line,
+  .controls .ri-skip-back-fill,
+  .controls .ri-play-fill,
+  .controls .ri-skip-forward-fill {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .close-btn .ri-close-line {
+    color: white;
+  }
+  
+
+.close-btn .material-icons {
+  color: white;
+}
+
+  
+  .progress-container {
+    width: 100%;
+    height: 5px;
+    background-color: #ccc;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #f1c40f;
+    width: 0%;
+    transition: width 0.1s ease;
+  }
+  

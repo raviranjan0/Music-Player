@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Background Styling */
+    body {
+      background: linear-gradient(to right, #4A90E2, #c5d6e7);
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    .progress {
+      background-color: #FFFFFF;
+      height: 5px;
+      transition: width 0.1s ease;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      transition: transform 0.3s ease;
+      transform: translateX(-100%);
+    }
+    .sidebar.active {
+      transform: translateX(0);
+    }
+    .sidebar:not(.active) {
+      transform: translateX(-100%);
+    }
+    .song-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .song-item:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .sidebar ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    /* Menu Button Styling */
+    .menu-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 100;
+    }
+    .menu-btn button {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+    .menu-btn button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      
+    }
+
+    .close-btn {
+      text-align: right;
+    }
+    .close-btn button {
+      background-color: rgba(255, 0, 0, 0.7);
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+    .close-btn button:hover {
+      background-color: rgba(255, 0, 0, 0.9);
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center">
+
+  <!-- Menu button -->
+  <div class="menu-btn">
+    <button id="menu-btn" class="focus:outline-none">
+      <span class="fas fa-bars text-white text-2xl"></span>
+    </button>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar fixed top-0 left-0 h-full w-64 bg-gray-900 bg-opacity-80 p-5 shadow-lg z-50" id="sidebar">
+    <div class="close-btn mb-5">
+      <button id="close-btn" class="focus:outline-none">
+        <span class="fas fa-times text-white text-xl"></span>
+      </button>
+    </div>
+    <h2 class="text-lg font-bold mb-3 text-white">Song List</h2>
+    <ul id="song-list" class="space-y-2">
+      <!-- Songs will be dynamically loaded here -->
+    </ul>
+  </div>
+
+  <!-- Music player -->
+  <div class="player-container w-full max-w-lg mx-auto mt-10 p-5 bg-gray-900 bg-opacity-80 rounded-lg shadow-md">
+    <div class="cover mb-5 h-72">
+      <img src="cover1.jpg" alt="Song Cover" id="song-cover" class="w-full h-full object-cover rounded-lg">
+    </div>
+    <h2 id="song-title" class="text-xl font-semibold text-center mb-5 text-white">Song Title</h2>
+
+    <!-- Time display -->
+    <div class="flex justify-between mb-3 text-white">
+      <span id="current-time">0:00</span>
+      <span id="total-duration">0:00</span>
+    </div>
+
+    <div class="controls flex justify-center items-center space-x-4 mb-5">
+      <button id="prev" class="bg-gray-700 p-3 rounded-full hover:bg-gray-600 focus:outline-none">
+        <span class="fas fa-backward text-white"></span>
+      </button>
+      <button id="play-pause" class="bg-green-500 p-3 rounded-full hover:bg-green-400 focus:outline-none">
+        <span class="fas fa-play text-white"></span>
+      </button>
+      <button id="next" class="bg-gray-700 p-3 rounded-full hover:bg-gray-600 focus:outline-none">
+        <span class="fas fa-forward text-white"></span>
+      </button>
+    </div>
+    <div class="progress-container bg-gray-700 rounded-full h-2 w-full mb-5 relative">
+      <div class="progress" id="progress"></div>
+    </div>
+    <audio id="audio"></audio> <!-- Audio player -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
